@@ -8,7 +8,11 @@
     ></PlayerShow>
   </div>
 
-  <PlayerAdd :player="player" @player-add-close="playerAddClose"></PlayerAdd>
+  <PlayerAdd
+    :player="player"
+    @player-add-close="playerAddClose"
+    @player-add-submit="playerAddSubmit"
+  ></PlayerAdd>
 </template>
 
 <script>
@@ -24,7 +28,7 @@ export default {
   data() {
     return {
       numberOfPlayers: 4,
-      player: null,
+      player: 0,
     };
   },
   methods: {
@@ -32,7 +36,10 @@ export default {
       this.player = player;
     },
     playerAddClose() {
-      this.player = null;
+      this.player = 0;
+    },
+    playerAddSubmit(commander) {
+      console.log(commander.name);
     },
   },
 };
