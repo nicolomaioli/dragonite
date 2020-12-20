@@ -1,5 +1,5 @@
 <template>
-  <div class="columns is-multiline is-mobile">
+  <div class="columns is-multiline is-mobile fill">
     <PlayerShow
       v-for="i in numberOfPlayers"
       :key="i"
@@ -40,10 +40,14 @@ export default {
     },
     playerAddSubmit(commander) {
       console.log(commander.name);
+      console.log(commander.image);
     },
   },
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.fill {
+  height: 100vh;
+}
 </style>
