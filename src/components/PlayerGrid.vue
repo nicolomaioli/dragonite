@@ -1,46 +1,35 @@
 <template>
   <div class="columns is-multiline is-mobile fill">
-    <PlayerShow
+    <div
+      class="column is-6 is-flex is-align-items-center is-justify-content-center"
       v-for="i in numberOfPlayers"
       :key="i"
-      :number="i"
-      @player-add="setPlayer"
-    ></PlayerShow>
+    >
+      <PlayerForm @player-add="playerAdd"></PlayerForm>
+    </div>
   </div>
-
-  <PlayerAdd
-    :player="player"
-    @player-add-close="playerAddClose"
-    @player-add-submit="playerAddSubmit"
-  ></PlayerAdd>
 </template>
 
 <script>
-import PlayerShow from "./PlayerShow.vue";
-import PlayerAdd from "./PlayerAdd.vue";
+import PlayerForm from "./PlayerForm.vue";
 
 export default {
   name: "PlayerGrid",
   components: {
-    PlayerShow,
-    PlayerAdd,
+    PlayerForm,
   },
   data() {
     return {
       numberOfPlayers: 4,
-      player: 0,
     };
   },
   methods: {
-    setPlayer(player) {
-      this.player = player;
-    },
-    playerAddClose() {
-      this.player = 0;
-    },
-    playerAddSubmit(commander) {
-      console.log(commander.name);
-      console.log(commander.image);
+    playerAdd(player, commander) {
+      // TODO
+
+      console.log(
+        `player add received, ${player}, ${JSON.stringify(commander, null, 2)}`
+      );
     },
   },
 };
