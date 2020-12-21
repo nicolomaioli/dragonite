@@ -77,6 +77,12 @@ export default {
       this.reset();
     },
     reset() {
+      this.player = "Player";
+      this.commander = {
+        name: "",
+        image: "",
+      };
+      this.query = "";
       this.hasError = false;
       this.hasWarning = false;
     },
