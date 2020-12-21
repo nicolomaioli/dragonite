@@ -39,7 +39,7 @@ export default {
   name: "PlayerForm",
   data() {
     return {
-      player: "",
+      player: "Player",
       commander: {
         name: "",
         image: "",
