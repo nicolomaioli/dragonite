@@ -1,35 +1,21 @@
 <template>
-  <div class="box is-mobile">
+  <div class="box p-6">
     <form v-on:submit.prevent>
-      <div class="field">
-        <label for="player" class="label">Player</label>
-        <div class="control">
-          <input v-model="player" name="player" type="text" class="input" />
-        </div>
-      </div>
-
-      <div class="field">
-        <label for="query" class="label">Commander</label>
-        <div class="control">
+      <div class="field has-addons">
+        <div class="control is-expanded">
           <input
             v-model="query"
-            name="query"
-            type="text"
             class="input"
+            type="text"
+            placeholder="Select a commander"
             :class="{ 'is-danger': hasError, 'is-warning': hasWarning }"
           />
         </div>
-        <p v-show="hasWarning" class="help is-warning">Multiple cards found</p>
-        <p v-show="hasError" class="help is-danger">Card not found</p>
-      </div>
-
-      <div class="field">
         <div class="control">
-          <button class="button is-link" type="button" @click="submit">
-            Submit
-          </button>
+          <a class="button is-link" @click="submit">Search</a>
         </div>
       </div>
+      <p v-show="hasError" class="help is-danger">{{ error }}</p>
     </form>
   </div>
 </template>
@@ -41,14 +27,13 @@ export default {
   name: "PlayerForm",
   data() {
     return {
-      player: "Player",
       commander: {
         name: "",
         image: "",
       },
       query: "",
       hasError: false,
-      hasWarning: false,
+      error: "",
     };
   },
   methods: {
@@ -58,13 +43,15 @@ export default {
 
       if (!res.ok) {
         this.hasError = true;
+        this.error = "Card not found";
         return;
       }
 
       const json = await res.json();
 
       if (json.total_cards > 1) {
-        this.hasWarning = true;
+        this.hasError = true;
+        this.error = "Too many cards, please refine the search";
         return;
       }
 
@@ -79,14 +66,13 @@ export default {
       this.reset();
     },
     reset() {
-      this.player = "Player";
       this.commander = {
         name: "",
         image: "",
       };
       this.query = "";
       this.hasError = false;
-      this.hasWarning = false;
+      this.error = "";
     },
   },
 };

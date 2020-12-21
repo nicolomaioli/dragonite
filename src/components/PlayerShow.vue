@@ -1,10 +1,7 @@
 <template>
-  <div class="column is-flex is-6 p-5" :style="styleObject">
+  <div class="column is-flex is-6 p-5" :class="{ flip }" :style="styleObject">
     <div class="columns is-flex-direction-column is-flex-grow-1 is-mobile">
-      <div class="column is-flex is-justify-content-space-between">
-        <div>
-          <p class="has-text-white text-shadow">{{ player }}</p>
-        </div>
+      <div class="column is-flex is-justify-content-right">
         <div>
           <font-awesome-icon
             :icon="faCog"
@@ -83,7 +80,6 @@ export default {
       faMinusSquare,
       faPlusSquare,
       showForm: false,
-      player: "Player",
       commander: {
         name: "",
         image: DEFAULT_BACKGROUND,
@@ -100,7 +96,6 @@ export default {
     },
     save(player, commander) {
       this.closeForm();
-      this.player = player;
       this.commander = commander;
     },
     decreaseLife() {
@@ -122,6 +117,9 @@ export default {
         boxShadow: "inset 0 0 3em 1.25em #000",
       };
     },
+    flip() {
+      return this.number < 3;
+    },
   },
 };
 </script>
@@ -129,5 +127,9 @@ export default {
 <style lang="scss" scoped>
 .text-shadow {
   text-shadow: 0.05em 0.05em #000;
+}
+
+.flip {
+  transform: rotate(180deg);
 }
 </style>
