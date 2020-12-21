@@ -18,6 +18,8 @@
           :class="{ 'is-danger': hasError, 'is-warning': hasWarning }"
         />
       </div>
+      <p v-show="hasWarning" class="help is-warning">Multiple cards found</p>
+      <p v-show="hasError" class="help is-danger">Card not found</p>
     </div>
 
     <div class="field">
