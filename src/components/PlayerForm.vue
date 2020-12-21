@@ -73,7 +73,7 @@ export default {
         image: card.image_uris.art_crop,
       };
 
-      this.$emit("player-add", this.player, this.commander);
+      this.$emit("player-submit", this.player, this.commander);
       this.reset();
     },
     reset() {

@@ -5,7 +5,7 @@
       v-for="i in numberOfPlayers"
       :key="i"
     >
-      <PlayerForm @player-add="playerAdd"></PlayerForm>
+      <PlayerForm @player-submit="playerAdd"></PlayerForm>
     </div>
   </div>
 </template>
