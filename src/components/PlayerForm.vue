@@ -51,8 +51,6 @@ export default {
   },
   methods: {
     async submit() {
-      this.reset();
-
       const url = encodeURI(`${SCRYFALL_URL}/cards/search?q=${this.query}`);
       const res = await fetch(url);
 
