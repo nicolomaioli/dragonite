@@ -1,3 +1,5 @@
+const { NODE_ENV } = process.env
+
 module.exports = {
-  publicPath: "/dragonite/"
+  publicPath: NODE_ENV === "prod" ? "/dragonite/" : "/"
 }
