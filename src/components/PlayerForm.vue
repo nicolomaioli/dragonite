@@ -1,5 +1,5 @@
 <template>
-  <div class="box">
+  <div class="box is-mobile">
     <form v-on:submit.prevent>
       <div class="field">
         <label for="player" class="label">Player</label>
