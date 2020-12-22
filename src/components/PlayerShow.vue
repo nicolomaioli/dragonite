@@ -44,7 +44,7 @@
   </div>
 
   <!-- Add player form -->
-  <div class="modal" :class="{ 'is-active': showForm }">
+  <div class="modal z-index-2" :class="{ 'is-active': showForm }">
     <div class="modal-background"></div>
     <div class="modal-content">
       <PlayerForm @player-submit="save"></PlayerForm>
@@ -139,5 +139,9 @@ export default {
 
 .flip {
   transform: rotate(180deg);
+}
+
+.z-index-2 {
+  z-index: 2;
 }
 </style>

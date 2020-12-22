@@ -3,14 +3,14 @@
     <font-awesome-icon
       :icon="faCoffee"
       size="lg"
-      class="centered has-text-danger"
+      class="centered z-index-1 has-text-danger"
     />
   </div>
   <div v-else @click="toggleNoSleep">
     <font-awesome-icon
       :icon="faCoffee"
       size="lg"
-      class="centered has-text-success"
+      class="centered z-index-1 has-text-success"
     />
   </div>
 </template>
@@ -51,10 +51,13 @@ export default {
 
 <style lang="scss">
 .centered {
-  z-index: 999;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.z-index-1 {
+  z-index: 1;
 }
 </style>
