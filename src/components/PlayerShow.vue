@@ -12,7 +12,13 @@
         </div>
       </div>
       <div
-        class="column is-flex is-flex-grow-1 is-align-items-center is-justify-content-space-between"
+        :class="[
+          'column',
+          'is-flex',
+          'is-flex-grow-1',
+          'is-align-items-center',
+          'is-justify-content-space-between',
+        ]"
       >
         <div @click="decreaseLife">
           <font-awesome-icon
@@ -22,7 +28,9 @@
           />
         </div>
         <div>
-          <h1 class="title has-text-white is-size-1 text-shadow">{{ life }}</h1>
+          <h1 :class="['title', 'has-text-white', 'is-size-1', 'text-shadow']">
+            {{ life }}
+          </h1>
         </div>
         <div @click="increaseLife">
           <font-awesome-icon

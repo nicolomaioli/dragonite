@@ -8,7 +8,7 @@
             class="input"
             type="text"
             placeholder="Select a commander"
-            :class="{ 'is-danger': hasError, 'is-warning': hasWarning }"
+            :class="{ 'is-danger': hasError }"
           />
         </div>
         <div class="control">
